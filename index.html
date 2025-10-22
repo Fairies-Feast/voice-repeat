@@ -83,12 +83,7 @@ if ("webkitSpeechRecognition" in window) {
     }
   };
 
-  var start_b = true; // true means not listening
-  element_start_b.addEventListener("click", attemptToEnable);
-  // Start speech recognition:
-  // [sr].start()
-  // [sr].stop()
-  // [terminal].run("kill 1")
+  var start_b = true;
 } else {
   document.body.innerHTML =
     "<h1>Webkit Speech Recognition is not enabled in your browser</h1><p>Try:</p><ul><li>Enabling it</li><li>Using another browser</li></ul>";
