@@ -7,6 +7,8 @@ One has been built by amsilla.com
 Copying is allowed, but this stamp certifies that it has been made by amsilla.com
 */
 var speechRecognition;
+var talk_pitch = 1;
+var talk_speed = 1;
 async function onerespond(message) {
   var msg = message.toLowerCase().trim();
   document.getElementById("heard").innerText = msg;
@@ -21,8 +23,8 @@ function onespeak(d) {
   if (v !== "") {
     const utterance = new SpeechSynthesisUtterance(v);
     // Optionally, you can configure the speech synthesis parameters
-    utterance.rate = 1; // Speech rate (default is 1)
-    utterance.pitch = 1; // Speech pitch (default is 1)
+    utterance.rate = talk_speed; // Speech rate (default is 1)
+    utterance.pitch = talk_pitch; // Speech pitch (default is 1)
     // Speak the text
     synthesis.speak(utterance);
   }
