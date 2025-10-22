@@ -1,46 +1,16 @@
 <h1>Voice Repeat</h1>
+<p id = 'heard'></p>
 <script>
   /*
 Copyright, amsilla.com
 One has been built by amsilla.com
 Copying is allowed, but this stamp certifies that it has been made by amsilla.com
 */
-// things: faces, open doors, make food, ChatGPT, ShieldContainers
-// done: faces
-
-//var element_start_b = document.getElementById("startb");
 var speechRecognition;
-var element_start_b = document.body;
-var currentPlay = "";
-function startPlaying(x) {
-  return new Promise((resolve, reject) => {
-    if (currentPlay) {
-      currentPlay.pause();
-    }
-    currentPlay = new Audio(x);
-    currentPlay.volume = 1;
-
-    currentPlay.oncanplaythrough = () => {
-      //Resolve when audio is ready to play
-      currentPlay.play();
-      resolve(); // Audio played successfully
-    };
-
-    currentPlay.onerror = () => {
-      reject(new Error("Audio file not found")); // Reject if there's an error
-    };
-  });
-}
 async function onerespond(message) {
   var msg = message.toLowerCase().trim();
+  document.getElementById("heard").innerText = msg;
   return msg;
-}
-
-function oneface(face) {
-  // Faces: Smiling, Normal, Thinking
-  document.getElementById(
-    "oneface"
-  ).innerHTML = `<img src="${face}.png" height='300px' width='auto'>`;
 }
 function onespeak(d) {
   // Web speech api Say something
@@ -72,11 +42,9 @@ function on_speak(msg) {
 function attemptToEnable() {
   if (start_b) {
     speechRecognition.start();
-    document.getElementById("startb").classList.add("listen");
     start_b = false;
   } else if (!start_b) {
     speechRecognition.stop();
-    document.getElementById("startb").classList.remove("listen");
     start_b = true;
   }
 }
