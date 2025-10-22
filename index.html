@@ -15,7 +15,6 @@ async function onerespond(message) {
   return msg;
 }
 function onespeak(d) {
-  console.log(d);
   // Web speech api Say something
   //alert(v)
   var v = d;
@@ -23,8 +22,8 @@ function onespeak(d) {
   if (v !== "") {
     const utterance = new SpeechSynthesisUtterance(v);
     // Optionally, you can configure the speech synthesis parameters
-    utterance.rate = talk_speed; // Speech rate (default is 1)
-    utterance.pitch = talk_pitch; // Speech pitch (default is 1)
+    utterance.rate = 1.5; // Speech rate (default is 1)
+    utterance.pitch = 2; // Speech pitch (default is 1)
     // Speak the text
     synthesis.speak(utterance);
   }
